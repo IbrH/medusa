@@ -33,13 +33,25 @@ module.exports = {
   modules: {
     stockLocationService: {
       scope: "internal",
-      resources: "shared",
+      resources: "isolated",
       resolve: "@medusajs/stock-location",
+      options: {
+        database: {
+          clientUrl: DB_URL,
+          debug: false,
+        },
+      },
     },
     inventoryService: {
       scope: "internal",
-      resources: "shared",
+      resources: "isolated",
       resolve: "@medusajs/inventory",
+      options: {
+        database: {
+          clientUrl: DB_URL,
+          debug: false,
+        },
+      },
     },
     cacheService: {
       resolve: "@medusajs/cache-inmemory",
